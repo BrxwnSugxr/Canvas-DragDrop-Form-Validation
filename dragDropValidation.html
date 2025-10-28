@@ -18,17 +18,20 @@
 
         // store drag id into dataTransfer obj
         event.dataTransfer.setData("dragId", dragId);
+      }
+      function drop(event) {
+        // get drop element id
+        var dropId = event.target.id;
+        console.log("dropId=" + dropId);
+        // retrieve drag id from datatransfer obj animalText
+        var dragId = event.dataTransfer.getData("dragId");
+        console.log("dragId=" + dragId);
+        // drop-drag logic
+        // TODO
+      }
 
-        function drop(event) {
-          // get drop element id
-          // retrieve drag id from datatransfer obj animalText
-          // drop-drag logic
-          // TODO
-        }
-
-        function dragOver(event) {
-          event.preventDefault();
-        }
+      function dragOver(event) {
+        event.preventDefault();
       }
     </script>
   </head>
@@ -49,6 +52,7 @@
 
     <div>
       <span
+        id="catText"
         class="animalText"
         onDrop="drop(event)"
         onDragOver="dragOver(event)"
