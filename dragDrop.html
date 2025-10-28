@@ -16,20 +16,44 @@
     <script>
       function dragStart(event) {
         // get the drag element id
-        var dragId = event.target.id;
+        const dragId = event.target.id;
         console.log(dragId);
         // store drag id into dataTransfer object
         event.dataTransfer.setData("dragId", dragId);
-        //
+      }
+
+      function drop(event) {
+        // get the drop element id
+        const dropId = event.target.id;
+        console.log("dropId=" + dropId);
+        // retrieve drag id from dataTransfer object
+        const dragId = event.dataTransfer.getData("dragId");
+        console.log("dragId=" + dragId);
+        // writing drag-drop logic
+        // TODO
+      }
+
+      function dragOver(event) {
+        event.preventDefault();
       }
     </script>
   </head>
   <body>
     Drag and animal and drop it on the corresponding text <br />
     <br />
-    <span class="animalText"> dog 0 </span>
+    <span class="animalText">
+      <span id="dogText" onDrop="drop(event)" onDragOver="dragOver(event)"
+        >dog</span
+      >
+      0
+    </span>
     &nbsp;&nbsp;&nbsp;&nbsp;
-    <span class="animalText"> cat 0 </span>
+    <span class="animalText">
+      <span id="catText" onDrop="drop(event)" onDragOver="dragOver(event)"
+        >cat</span
+      >
+      0
+    </span>
     <br /><br />
     <img
       src="cat.png"
