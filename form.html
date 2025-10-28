@@ -4,7 +4,33 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <script></script>
+    <script>
+      var num1 = 0;
+      var num2 = 0;
+      var result = num1 + num2;
+
+      function setupMatch() {
+        num1 = Math.floor(Math.random() * 10);
+        num2 = Math.floor(Math.random() * 10);
+        result = num1 + num2;
+        var mathEquation = num1 + "+" + num2 + "=";
+
+        document.getElementById("mathHolder").innerHTML =
+          "Prove that you are not a robot: " + mathEquation;
+      }
+
+      function validateLibaryForm() {
+        let userAnswer = Number(document.getElementById("mathResult").value);
+
+        if (userAnswer != result) {
+          var msgSpan = (document.getElementById(
+            "mathMsgHolder"
+          ).innerHTML = `<font color='red'>Wrong!</font>`);
+          return false;
+        }
+        return true;
+      }
+    </script>
   </head>
   <body onLoad="setupMatch()">
     <h1>Whoseville library book search</h1>
@@ -17,11 +43,11 @@
       <table>
         <tr>
           <td>Author name:</td>
-          <td><input type="text" /></td>
+          <td><input type="text" name="Author" /></td>
         </tr>
         <tr>
           <td>Publication year:</td>
-          <td><input type="text" /></td>
+          <td><input type="text" name="Publication" /></td>
         </tr>
         <tr>
           <td valign="top">Subject:</td>
@@ -38,7 +64,7 @@
           </td>
         </tr>
         <tr>
-          <td>
+          <td colspan="2">
             <span id="mathHolder"></span>
             <input type="text" size="5" id="mathResult" />
             <span id="mathMsgHolder"></span>
@@ -47,8 +73,8 @@
         <tr>
           <td></td>
           <td colspan="2">
-            <button>Search</button>
-            <button>Clear</button>
+            <button type="submit">Search</button>
+            <button type="reset">Clear</button>
           </td>
         </tr>
       </table>
