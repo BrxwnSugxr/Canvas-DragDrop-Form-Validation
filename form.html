@@ -4,38 +4,54 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <script></script>
   </head>
-  <body>
+  <body onLoad="setupMatch()">
     <h1>Whoseville library book search</h1>
-    <table>
-      <tr>
-        <td>Author name:</td>
-        <td><input type="text" /></td>
-      </tr>
-      <tr>
-        <td>Publication year:</td>
-        <td><input type="text" /></td>
-      </tr>
-      <tr>
-        <td>Subject:</td>
-        <td>
-          <input type="checkbox" value="mth" name="math" />Mathematics<br />
-          <input type="checkbox" value="cs" name="Computer Science" />Computer
-          Science<br />
-          <input type="checkbox" value="bio" name="Biology" />Biology<br />
-          <input type="checkbox" value="phy" name="Physics" />Physics<br />
-          <input type="checkbox" value="chem" name="chemistry" />Chemistry<br />
-        </td>
-      </tr>
-      <tr>
-        <td></td>
-      </tr>
-      <tr>
-        <td>
-          <button>Search</button>
-          <button>Clear</button>
-        </td>
-      </tr>
-    </table>
+
+    <form
+      action="http://library.whosville/bsearch"
+      method="get"
+      onSubmit="return validateLibaryForm()"
+    >
+      <table>
+        <tr>
+          <td>Author name:</td>
+          <td><input type="text" /></td>
+        </tr>
+        <tr>
+          <td>Publication year:</td>
+          <td><input type="text" /></td>
+        </tr>
+        <tr>
+          <td valign="top">Subject:</td>
+          <td>
+            <input type="checkbox" value="mth" name="sub" />Mathematics<br />
+            <input type="checkbox" value="cs" name="sub" />Computer Science<br />
+            <input type="checkbox" value="bio" name="sub" />Biology<br />
+            <input type="checkbox" value="phy" name="sub" />Physics<br />
+            <input
+              type="checkbox"
+              value="chem"
+              name="chemistry"
+            />Chemistry<br />
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <span id="mathHolder"></span>
+            <input type="text" size="5" id="mathResult" />
+            <span id="mathMsgHolder"></span>
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td colspan="2">
+            <button>Search</button>
+            <button>Clear</button>
+          </td>
+        </tr>
+      </table>
+    </form>
   </body>
 </html>
