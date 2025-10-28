@@ -19,6 +19,10 @@
         // store drag id into dataTransfer obj
         event.dataTransfer.setData("dragId", dragId);
       }
+
+      let dogCount = 0;
+      let catCount = 0;
+
       function drop(event) {
         // get drop element id
         var dropId = event.target.id;
@@ -27,7 +31,26 @@
         var dragId = event.dataTransfer.getData("dragId");
         console.log("dragId=" + dragId);
         // drop-drag logic
-        // TODO
+        if (dropId == "dogText" && dragId == "dogImage") {
+          dogCount++;
+
+          var html = getImgHtml("dog.png", dogCount);
+          document.getElementById("dogHolder").innerHTML = html;
+        }
+        if (dropId == "catText" && dragId == "catImage") {
+          catCount++;
+
+          var html = getImgHtml("cat.png", catCount);
+          document.getElementById("catHolder").innerHTML = html;
+        }
+      }
+
+      function getImgHtml(imageSource, count) {
+        var html = "";
+        for (var i = 0; i < count; i++) {
+          html += "<img src='" + imageSource + "' height='100px'>";
+        }
+        return html;
       }
 
       function dragOver(event) {
