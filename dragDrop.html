@@ -12,6 +12,17 @@
         border-width: 1px;
       }
     </style>
+
+    <script>
+      function dragStart(event) {
+        // get the drag element id
+        var dragId = event.target.id;
+        console.log(dragId);
+        // store drag id into dataTransfer object
+        event.dataTransfer.setData("dragId", dragId);
+        //
+      }
+    </script>
   </head>
   <body>
     Drag and animal and drop it on the corresponding text <br />
@@ -20,7 +31,19 @@
     &nbsp;&nbsp;&nbsp;&nbsp;
     <span class="animalText"> cat 0 </span>
     <br /><br />
-    <img src="cat.png" height="100px" />
-    <img src="dog.png" height="100px" />
+    <img
+      src="cat.png"
+      height="100px"
+      draggable="true"
+      onDragStart="dragStart(event)"
+      id="catImage"
+    />
+    <img
+      src="dog.png"
+      height="100px"
+      draggable="true"
+      onDragStart="dragStart(event)"
+      id="dogImage"
+    />
   </body>
 </html>
