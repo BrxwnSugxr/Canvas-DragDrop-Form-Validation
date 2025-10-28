@@ -15,19 +15,22 @@
         const y3 = Number(document.getElementById("y3").value);
 
         // get canvas 2d context
-        const canvas = document.getElementById("mycanvas").getContext("2d");
+        const ctx = document.getElementById("mycanvas").getContext("2d");
+
+        //  clear the canvas
+        ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
 
         // draw the triangle
 
         // make the path for triangle
-        canvas.beginPath();
-        canvas.moveTo(x1, y1);
-        canvas.lineTo(x2, y2);
-        canvas.lineTo(x3, y3);
-        canvas.closePath();
+        ctx.beginPath();
+        ctx.moveTo(x1, y1);
+        ctx.lineTo(x2, y2);
+        ctx.lineTo(x3, y3);
+        ctx.closePath();
 
         // make the stroke
-        canvas.stroke();
+        ctx.stroke();
 
         // make the fill
       }
