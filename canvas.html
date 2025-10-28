@@ -7,21 +7,27 @@
     <script>
       function drawTriangle() {
         //  get triangle coordinate from the user
-        const x1input = Number(document.getElementById("x1").value);
-        const y1input = Number(document.getElementById("y1").value);
-        const x2input = Number(document.getElementById("x2").value);
-        const y2input = Number(document.getElementById("y2").value);
-        const x3input = Number(document.getElementById("x3").value);
-        const y3input = Number(document.getElementById("y3").value);
+        const x1 = Number(document.getElementById("x1").value);
+        const y1 = Number(document.getElementById("y1").value);
+        const x2 = Number(document.getElementById("x2").value);
+        const y2 = Number(document.getElementById("y2").value);
+        const x3 = Number(document.getElementById("x3").value);
+        const y3 = Number(document.getElementById("y3").value);
 
         // get canvas 2d context
         const canvas = document.getElementById("mycanvas").getContext("2d");
 
         // draw the triangle
 
-        // make the path for traingle
+        // make the path for triangle
+        canvas.beginPath();
+        canvas.moveTo(x1, y1);
+        canvas.lineTo(x2, y2);
+        canvas.lineTo(x3, y3);
+        canvas.closePath();
 
         // make the stroke
+        canvas.stroke();
 
         // make the fill
       }
